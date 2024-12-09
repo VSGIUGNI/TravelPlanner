@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comentários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let comment of comments">
+      <ion-label>
+        <p>{{ comment.comment }}</p>
+        <small>{{ comment.createdAt | date }}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Caixa de texto para adicionar comentários -->
+  <ion-item>
+    <ion-input [(ngModel)]="newComment" placeholder="Escreva seu comentário"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="addComment(newComment)">Adicionar Comentário</ion-button>
+</ion-content>

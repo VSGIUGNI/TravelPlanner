@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalhes da Viagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="travel">
+    <ion-card-header>
+      <ion-card-title>{{ travel.description }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Tipo:</strong> {{ travel.type }}</p>
+      <p><strong>Estado:</strong> {{ travel.state }}</p>
+      <p><strong>Datas:</strong> {{ travel.startAt | date }} - {{ travel.endAt | date }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

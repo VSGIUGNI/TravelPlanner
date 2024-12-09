@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Opiniões</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!-- Listar Opiniões -->
+    <ion-item *ngFor="let opinion of opinions">
+      <ion-label>
+        <p>{{ opinion.comment }}</p>
+      </ion-label>
+      <ion-button fill="outline" (click)="editOpinion(opinion)">Editar</ion-button>
+      <ion-button fill="outline" color="danger" (click)="deleteOpinion(opinion.id)">Excluir</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Adicionar Nova Opinião -->
+  <ion-item *ngIf="!editMode">
+    <ion-input [(ngModel)]="newOpinion" placeholder="Escreva sua opinião"></ion-input>
+    <ion-button (click)="addOpinion()">Adicionar</ion-button>
+  </ion-item>
+
+  <!-- Editar Opinião -->
+  <ion-item *ngIf="editMode">
+    <ion-input [(ngModel)]="opinionToEdit.comment" placeholder="Edite sua opinião"></ion-input>
+    <ion-button color="success" (click)="saveOpinion()">Salvar</ion-button>
+    <ion-button color="light" (click)="editMode = false">Cancelar</ion-button>
+  </ion-item>
+</ion-content>
