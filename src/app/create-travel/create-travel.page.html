@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Criar Nova Viagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Destino</ion-label>
+      <ion-input formControlName="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Tipo</ion-label>
+      <ion-select formControlName="type">
+        <ion-select-option value="Lazer">Lazer</ion-select-option>
+        <ion-select-option value="Trabalho">Trabalho</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Estado</ion-label>
+      <ion-select formControlName="state">
+        <ion-select-option value="Planejado">Planejado</ion-select-option>
+        <ion-select-option value="Concluído">Concluído</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data de Início</ion-label>
+      <ion-datetime formControlName="startAt"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data de Término</ion-label>
+      <ion-datetime formControlName="endAt"></ion-datetime>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="travelForm.invalid">Salvar</ion-button>
+  </form>
+</ion-content>

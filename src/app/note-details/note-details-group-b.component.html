@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismiss()">Fechar</ion-button>
+          </ion-buttons>
+      <ion-title>Campos Adicionais</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="save()">Salvar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Mapa</ion-label>
+        <ion-input formControlName="map"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Prop 1</ion-label>
+        <ion-input formControlName="prop1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Prop 2</ion-label>
+        <ion-input formControlName="prop2"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Prop 3</ion-label>
+        <ion-input formControlName="prop3"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Favorito</ion-label>
+        <ion-toggle formControlName="isfav"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Locais</ion-label>
+        <ion-input formControlName="locations"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Comentários</ion-label>
+        <ion-input formControlName="comments"></ion-input>
+      </ion-item>
+    </form>
+  
+    
+  </ion-content>
+  

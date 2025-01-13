@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="../../../assets/icon/Travel_planner_logo.webp" alt="" style="height: 47px; margin-right: 10px;">
+        <span>Comentários</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="comments && comments.length > 0; else noComments">
+    <ion-item *ngFor="let comment of comments">
+      <ion-label>
+        <p style="font-weight: bold;">{{ comment.username || 'Anônimo' }}</p>
+        <p>{{ comment.comment }}</p>
+        <small>{{ comment.createdAt | date: 'short' }}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noComments>
+    <div style="text-align: center; margin-top: 20px;">
+      <ion-text color="medium">Nenhum comentário disponível.</ion-text>
+    </div>
+  </ng-template>
+
+  <ion-item>
+    <ion-input [(ngModel)]="newComment" placeholder="Escreva seu comentário"></ion-input>
+  </ion-item>
+  <ion-button expand="block" color="primary" (click)="createComment()">Adicionar Comentário</ion-button>
+
+  <!-- Barra de navegação -->
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="dashboard" [routerLink]="['/dashboard']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Início</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="map" [routerLink]="['/map']">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Mapa</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="comments" [routerLink]="['/comments']">
+      <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>Comentários</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Viagem</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-input formControlName="description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tipo</ion-label>
+      <ion-input formControlName="type"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Estado</ion-label>
+      <ion-input formControlName="state"></ion-input>
+    </ion-item>
+
+    <!-- Data de Início -->
+    <ion-item>
+      <ion-label>Data Início</ion-label>
+      <ion-input
+        [value]="formatDate(form.get('startAt')?.value)"
+        readonly
+        placeholder="Selecione a data"
+      ></ion-input>
+      <ion-button fill="clear" slot="end" (click)="toggleStartCalendar()">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item *ngIf="showStartCalendar">
+      <ion-datetime
+        formControlName="startAt"
+        (ionChange)="onStartDateChange($event)"
+      ></ion-datetime>
+    </ion-item>
+
+    <!-- Data de Fim -->
+    <ion-item>
+      <ion-label>Data Fim</ion-label>
+      <ion-input
+        [value]="formatDate(form.get('endAt')?.value)"
+        readonly
+        placeholder="Selecione a data"
+      ></ion-input>
+      <ion-button fill="clear" slot="end" (click)="toggleEndCalendar()">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item *ngIf="showEndCalendar">
+      <ion-datetime
+        formControlName="endAt"
+        (ionChange)="onEndDateChange($event)"
+      ></ion-datetime>
+    </ion-item>
+  </form>
+
+  <ion-button expand="block" color="secondary" (click)="openGroupBModal()">Complementos</ion-button>
+  <ion-button expand="block" (click)="save()">Salvar</ion-button>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "FichaTarabalho",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

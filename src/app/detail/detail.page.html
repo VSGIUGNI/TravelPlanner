@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Botão para fechar a página -->
+    <ion-buttons slot="start">
+      <ion-button (click)="closePage()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>
+      Detalhes da Nota
+    </ion-title>
+    <!-- Botão para apagar a nota -->
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="deleteNote()">Apagar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Exibindo os dados da nota -->
+  <ion-card *ngIf="noteContent && noteState && notePriority">
+    <ion-card-header>
+      <ion-card-title>{{ noteContent }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Status:</strong> {{ noteState }}</p>
+      <p><strong>Prioridade:</strong> {{ notePriority }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Formulário de edição -->
+  <form [formGroup]="noteForm" (ngSubmit)="saveChanges()">
+    <!-- Campo de texto para o conteúdo da nota -->
+    <ion-item>
+      <ion-textarea
+        placeholder="Escreva aqui o texto da nota..."
+        formControlName="content"
+        auto-grow="true"
+      ></ion-textarea>
+    </ion-item>
+
+    <!-- Dropdown para escolher o estado da nota -->
+    <ion-item>
+      <ion-label>Estado</ion-label>
+      <ion-select formControlName="state">
+        <ion-select-option value="TODO">TO DO</ion-select-option>
+        <ion-select-option value="DONE">DONE</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Dropdown para escolher a prioridade da nota -->
+    <ion-item>
+      <ion-label>Prioridade</ion-label>
+      <ion-select formControlName="priority">
+        <ion-select-option value="LOW">BAIXA</ion-select-option>
+        <ion-select-option value="NORMAL">NORMAL</ion-select-option>
+        <ion-select-option value="CRITICAL">CRÍTICA</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Botão para gravar as alterações feitas -->
+    <div style="text-align: center; margin-top: 20px;">
+      <ion-button expand="block" type="submit" [disabled]="noteForm.invalid">Gravar</ion-button>
+    </div>
+  </form>
+
+  <!-- Exibição de mensagem de erro ou sucesso -->
+  <ion-toast
+    *ngIf="showToast"
+    [message]="toastMessage"
+    [color]="toastColor"
+    [duration]="2000"
+    position="bottom"
+  ></ion-toast>
+</ion-content>

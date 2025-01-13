@@ -1,0 +1,68 @@
+ion-content {
+  --background: #f9f9f9; /* Fundo mais suave para o conteúdo */
+  padding: 15px; /* Adiciona um padding global ao conteúdo */
+}
+
+ion-textarea {
+  border: 1px solid #dcdcdc; /* Borda cinza mais clara */
+  border-radius: 8px; /* Cantos levemente mais arredondados */
+  padding: 12px; /* Espaço interno ajustado */
+  font-size: 1rem; /* Ajusta o tamanho da fonte para consistência */
+  background-color: #ffffff; /* Fundo branco para contraste */
+}
+
+ion-item {
+  margin-bottom: 12px; /* Espaço maior entre os campos */
+  --background: transparent; /* Remove fundo padrão */
+}
+
+ion-button {
+  margin-top: 25px; /* Espaço maior acima do botão */
+  --border-radius: 8px; /* Botões com cantos levemente arredondados */
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --background: #3880ff; /* Azul padrão do Ionic */
+  --background-hover: #3171e0; /* Cor de hover */
+  --background-activated: #2857b8; /* Cor ao clicar */
+}
+
+ion-card {
+  margin: 20px 10px; /* Ajusta margens para consistência */
+  border-radius: 10px; /* Arredonda os cantos do card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
+ion-card-header {
+  background-color: #eaeaea; /* Fundo mais claro e neutro */
+  border-bottom: 1px solid #dcdcdc; /* Linha separadora entre o cabeçalho e o conteúdo */
+  padding: 12px 16px; /* Ajuste no espaçamento interno */
+  border-top-left-radius: 10px; /* Alinha com o card */
+  border-top-right-radius: 10px; /* Alinha com o card */
+}
+
+ion-card-title {
+  font-size: 1.3rem; /* Título mais destacado */
+  font-weight: 600; /* Negrito mais sutil */
+  color: #333; /* Cor mais contrastante */
+}
+
+ion-card-content {
+  font-size: 1rem; /* Ajusta o tamanho da fonte */
+  color: #666; /* Texto com tonalidade média */
+  line-height: 1.6; /* Melhora o espaçamento entre linhas */
+  padding: 10px 16px; /* Consistência no padding */
+}
+
+form {
+  ion-item {
+    --highlight-color-focused: #3880ff; /* Cor do destaque ao focar nos campos */
+  }
+}
+
+ion-toast {
+  --background: #3880ff; /* Cor do fundo do toast */
+  --color: white; /* Cor do texto no toast */
+  --border-radius: 8px; /* Bordas arredondadas */
+  --padding: 10px; /* Espaçamento interno */
+  --font-size: 0.9rem; /* Tamanho da fonte */
+}

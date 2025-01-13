@@ -1,0 +1,84 @@
+:host {
+  display: block;
+
+  ion-content {
+    padding: 16px;
+  }
+}
+
+ion-header {
+  ion-toolbar {
+    --background: #ffffff;
+    --color: #333;
+  }
+
+  ion-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  ion-button {
+    font-size: 16px;
+  }
+}
+
+ion-content {
+  background-color: #f9f9f9;
+}
+
+form {
+  ion-item {
+    margin-bottom: 15px;
+  }
+
+  ion-label {
+    font-weight: bold;
+  }
+
+  ion-textarea {
+    --min-height: 120px;
+  }
+
+  ion-select {
+    font-weight: normal;
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    --background: #ffffff;
+    --color: #333;
+    padding: 10px 0;
+  }
+
+  ion-button {
+    font-size: 18px;
+    font-weight: bold;
+    --background: #3880ff;
+    --border-radius: 10px;
+  }
+
+  ion-button[color="danger"] {
+    --background: #f53d3d;
+    --border-radius: 10px;
+  }
+}
+
+ion-note {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+ion-item ion-select,
+ion-item ion-textarea {
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+ion-item ion-select {
+  --min-height: 40px;  // Adicionado para melhorar a altura do seletor
+}
+
+ion-item ion-textarea {
+  --min-height: 120px; // Garantir que o textarea tenha altura consistente
+}

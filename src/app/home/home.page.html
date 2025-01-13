@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="../../../assets/icon/Travel_planner_logo.webp" alt="Logo" style="height: 47px; margin-right: 8px;">
+      <ion-title style="font-size: 1.5rem; font-weight: bold; margin: 0;">Travel Planner</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Sub-Header com título maior -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Viagens</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Exibe o número de Viagens -->
+  <div style="display: flex; justify-content: flex-end; margin: 10px;">
+    <div style="border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px; background-color: #f9f9f9; font-size: 12px;">
+      <strong>{{ notes.length }} Viagens</strong>
+    </div>
+  </div>
+  <!-- Loop de viagens-->
+<div>
+  <ion-list>
+    <ion-item *ngFor="let note of notes" (click)="openDetails(note)">
+      <ion-label>
+        <h2>{{ note.description }}</h2>
+        <p>{{ note.startAt | date }} - {{ note.endAt | date }}</p>
+      </ion-label>
+   </ion-item>
+  </ion-list>
+
+   <!-- Template alternativo para quando não houver viagens -->
+  <ng-template #noTravels>
+    <div style="text-align: center; margin-top: 50px; color: #888;">
+      <ion-icon name="airplane" style="font-size: 48px; color: #4CAF50;"></ion-icon>
+      <h2 style="font-size: 1.2rem; font-weight: bold; margin-top: 20px;">Sem viagens planejadas</h2>
+      <p style="font-size: 1rem; color: #777;">Ainda não há viagens planejadas. Comece a planejar sua próxima viagem!</p>
+    </div>
+  </ng-template> 
+
+  <!-- Botão flutuante para adicionar nova nota --> 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openDetails(null)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<!-- Botão para criar nova viagem -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/create-travel']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>
+<!-- Barra de navegação 
+<div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="dashboard" [routerLink]="['/home.page']">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Início</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="map" [routerLink]="['/map']">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Mapa</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="comments" [routerLink]="['/comments']">
+        <ion-icon name="chatbubbles"></ion-icon>
+        <ion-label>Comentários</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div> -->
+</ion-content>
+
